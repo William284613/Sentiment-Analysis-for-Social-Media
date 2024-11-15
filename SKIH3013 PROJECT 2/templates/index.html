@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sentiment Analysis</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Sentiment Analysis</h1>
+     <h3> Enter text for prediction: </h3>
+
+     <form action="/predict" method="post">
+        <input type="text" id="user_input" name="user_input" required>
+        <button type="submit">Predict</button>
+    </form>
+    <br>
+    <br>
+    {% if user_input %}
+        <p><strong>Input:</strong> {{ user_input }}</p>
+    {% endif %}
+    {% if sentiment %}
+        <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+    {% endif %}
+
+ </div>
+
+
+</body>
+</html>
